@@ -1,12 +1,22 @@
 const express = require('express')
 const routes = express.Router();
+const crypto = require('crypto');
+const connection = require('./database/connection');
 
+routes.post('/ongs',async (req,res)=>{
+    const {name,email,whatsapp,city,uf} = req.body;
+    const id = crypto.randomBytes(4).toString('HEX');
+    
+    await connection('ongs').insert({
+        id,
+        name,
+        email,
+        whatsapp,
+        city,
+        uf
+    });
 
-routes.post('/users',(req,res)=>{
-    return res.json({
-        evento:'Semanta OmniStack 11.0',
-        aluno: 'Cassiano Ricardo Siduoski'
-    })
+    return res.json({id})
 });
 
 module.exports = routes;
