@@ -3,13 +3,28 @@ import { Feather } from '@expo/vector-icons'
 import { View,Text,Image,TouchableOpacity} from 'react-native'
 import styles from './styles.js'
 import logoImg from '../../assets/logo.png';
-import { useNavigation } from '@react-navigation/native'
+import { useNavigation } from '@react-navigation/native';
+import * as MailCompose from 'expo-mail-composer';
 
 export default function Detail(){
     const navigation = useNavigation();
-
+    const message = `Olá APAD, estou entrando em contato pois gostaria de ajudar no caso "Cadelinha atropelada" com o valor de R$:120 `;
     const navigateBack = () => {
         navigation.goBack();
+    }
+
+    const sendMail = () => {
+        MailCompose.composeAsync({
+            subject:'Herói do caso: Cadelinha',
+            recipients: ['cassiano.rsd@gmail.com'],
+            body: message
+        })
+
+    }
+
+    const sendWhatsApp = () => {
+
+
     }
 
     return (
@@ -38,7 +53,7 @@ export default function Detail(){
                     <TouchableOpacity style={styles.action} onPress={()=>{}}>
                         <Text style={styles.actionText}>WhatsApp</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity style={styles.action} onPress={()=>{}}>
+                    <TouchableOpacity style={styles.action} onPress={sendMail}>
                         <Text style={styles.actionText}>E-mail</Text>
                     </TouchableOpacity>
                 </View>
