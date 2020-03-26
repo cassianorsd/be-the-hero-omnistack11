@@ -27,7 +27,7 @@ export default function Indicents(){
         setLoading(true);
 
         const response = await api.get('/incidents',{params:{ page }});
-        setIncidents([...incidents,response.data]);
+        setIncidents([...incidents,...response.data]);
         setTotal(response.headers['x-total-count']);
         setPage(prev=>prev+1);
         setLoading(false);
@@ -52,8 +52,7 @@ export default function Indicents(){
             <FlatList
                 style={styles.incidentList}
                 data={incidents}
-                keyExtractor={incident=>incident.id}
-                showsVerticalScrollIndicator={false}
+                keyExtractor={incident=>String(incident.id)}
                 onEndReached={loadIncidents}
                 onEndReachedThreshold={0.2}
                 renderItem={({ item: incident })=>(
