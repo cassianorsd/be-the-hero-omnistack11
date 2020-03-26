@@ -11,8 +11,8 @@ export default function Indicents(){
     const [ incidents,setIncidents ] = useState([]);
     const [ total, setTotal ] = useState(0);
 
-    const navigateToDetail = () => {
-        navigation.navigate('Detail');
+    const navigateToDetail = (incident) => {
+        navigation.navigate('Detail',{incident});
     }
 
     const loadIncidents = async () => {
@@ -64,7 +64,7 @@ export default function Indicents(){
 
                         <TouchableOpacity 
                             style={styles.detailsButton} 
-                            onPress={navigateToDetail}
+                            onPress={() => navigateToDetail(incident)}
                             >
                                 <Text style={styles.detailsButtonText}>
                                 Ver mais detalhes
