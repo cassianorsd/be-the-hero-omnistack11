@@ -1,5 +1,6 @@
 import React from 'react';
-import { View,Text,Image } from 'react-native';
+import { Feather } from '@expo/vector-icons';
+import { View,Text,Image,TouchableOpacity } from 'react-native';
 import styles from './styles.js';
 import logoImg from '../../assets/logo.png';
 
@@ -16,6 +17,68 @@ export default function Indicents(){
             <Text style={styles.description}>
                 Escolha um dos casos abaixo e salve o dia!
             </Text>
+            <View style={styles.incidentList}>
+                <View style={styles.incident}>
+                    <Text style={styles.incidentProperty}>ONG:</Text>                   
+                    <Text style={styles.incidentValue}>APAD</Text>     
+
+                    <Text style={styles.incidentProperty}>CASO:</Text>                   
+                    <Text style={styles.incidentValue}>dfgfdgfd</Text>   
+
+                    <Text style={styles.incidentProperty}>VALOR:</Text>                   
+                    <Text style={styles.incidentValue}>123</Text>        
+
+                    <TouchableOpacity 
+                        style={styles.detailsButton} 
+                        onPress={()=>{}}
+                        >
+                            <Text style={styles.detailsButtonText}>
+                            Ver mais detalhes
+                            </Text>
+                            <Feather name="arrow-right" size={16} color="#E02041"/>
+                    </TouchableOpacity>           
+                </View>
+                <View style={styles.incident}>
+                    <Text style={styles.incidentProperty}>ONG:</Text>                   
+                    <Text style={styles.incidentValue}>APAD</Text>     
+
+                    <Text style={styles.incidentProperty}>CASO:</Text>                   
+                    <Text style={styles.incidentValue}>dfgfdgfd</Text>   
+
+                    <Text style={styles.incidentProperty}>VALOR:</Text>                   
+                    <Text style={styles.incidentValue}>123</Text>        
+
+                    <TouchableOpacity 
+                        style={styles.detailsButton} 
+                        onPress={()=>{}}
+                        >
+                            <Text style={styles.detailsButtonText}>
+                            Ver mais detalhes
+                            </Text>
+                            <Feather name="arrow-right" size={16} color="#E02041"/>
+                    </TouchableOpacity>           
+                </View>
+                <View style={styles.incident}>
+                    <Text style={styles.incidentProperty}>ONG:</Text>                   
+                    <Text style={styles.incidentValue}>APAD</Text>     
+
+                    <Text style={styles.incidentProperty}>CASO:</Text>                   
+                    <Text style={styles.incidentValue}>dfgfdgfd</Text>   
+
+                    <Text style={styles.incidentProperty}>VALOR:</Text>                   
+                    <Text style={styles.incidentValue}>123</Text>        
+
+                    <TouchableOpacity 
+                        style={styles.detailsButton} 
+                        onPress={()=>{}}
+                        >
+                            <Text style={styles.detailsButtonText}>
+                            Ver mais detalhes
+                            </Text>
+                            <Feather name="arrow-right" size={16} color="#E02041"/>
+                    </TouchableOpacity>           
+                </View>
+            </View>
         </View>
     )
 }
