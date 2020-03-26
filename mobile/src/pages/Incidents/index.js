@@ -52,7 +52,7 @@ export default function Indicents(){
             <FlatList
                 style={styles.incidentList}
                 data={incidents}
-                keyExtractor={incident=>String(incident.id)}
+                keyExtractor={incident=>incident.id}
                 showsVerticalScrollIndicator={false}
                 onEndReached={loadIncidents}
                 onEndReachedThreshold={0.2}
