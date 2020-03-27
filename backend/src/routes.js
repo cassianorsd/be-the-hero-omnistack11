@@ -7,10 +7,15 @@ const { celebrate, Segments, Joi} = require('celebrate')
 
 const routes = express.Router();
 
-routes.post('/sessions',SessionController.create)
+routes.post('/sessions',
+celebrate({
+    [Segments.BODY]:Joi.object({
+        id: Joi.string().required()
+    })
+}),
+SessionController.create)
 
 routes.get('/ongs',OngController.list)
-
 
 routes.post('/ongs',celebrate({
     [Segments.BODY]: Joi.object().keys({
@@ -39,6 +44,7 @@ celebrate({
 IncidentController.create)
 
 routes.get('/incidents',IncidentController.list)
+
 routes.delete('/incidents/:id',
 celebrate({
     [Segments.PARAMS]:Joi.object().keys({
